@@ -8,6 +8,6 @@
     job_one:
       runs-on: ubuntu-latest
       steps:
-        - uses: action/checkout@v2
+        - uses: actions/checkout@v2
         - name: greeting
           run: echo "Eyo bigman...Welcome to my world"
