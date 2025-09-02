@@ -11,3 +11,10 @@
         - uses: actions/checkout@v2
         - name: greeting
           run: echo "Eyo bigman...Welcome to my world"
+    job_two:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: seeing you out
+          run : echo "Good byeee and thank you for coming"
+      
