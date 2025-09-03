@@ -12,6 +12,7 @@
         - name: greeting
           run: echo "Eyo bigman...Welcome to my world"
     job_two:
+      needs: job_one
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v2
