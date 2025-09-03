@@ -8,7 +8,7 @@
     job_one:
       runs-on: ubuntu-latest
       outputs:
-        ask: ${{steps.get_output}}
+        ask: ${{ steps.get_output.outputs.msg }}
       steps:
         - uses: actions/checkout@v4
         - name: greeting
@@ -23,6 +23,7 @@
       steps:
         - uses: actions/checkout@v2
         - name: seeing you out
-          run: echo "Good byeee and thank you for coming"
-               echo "Message from job one '${{ needs.job_one.outputs.ask }}'"
+          run: |
+            echo "Good byeee and thank you for coming"
+            echo "Message from job one '${{ needs.job_one.outputs.ask }}'"
       
