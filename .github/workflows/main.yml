@@ -21,7 +21,7 @@
       needs: job_one
       runs-on: ubuntu-latest
       outputs:
-       ask: ${{ steps.get_output.outputs.msg }}
+       ask: ${{ steps.to_job_three.outputs.msg }}
       steps:
         - uses: actions/checkout@v2
         - name: seeing you out
