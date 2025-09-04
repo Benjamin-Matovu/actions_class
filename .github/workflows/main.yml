@@ -20,10 +20,24 @@
     job_two:
       needs: job_one
       runs-on: ubuntu-latest
+      outputs:
+       ask: ${{ steps.get_output.outputs.msg }}
       steps:
         - uses: actions/checkout@v2
         - name: seeing you out
           run: |
             echo "Good byeee and thank you for coming"
             echo "Message from job one '${{ needs.job_one.outputs.ask }}'"
+        - name: to_job_three
+          id: to_job_three
+          run: echo "msg=Heyyy...This message will be displayed during job Three (from job two)" >> "$GITHUB_OUTPUT"
+
+    job_three:
+      needs: job_two
+      runs-on: ubuntu-latest
+      steps:
+        - name: copying_message_from_job_two
+          run: |
+           echo "This is the 1st message in Job Three"
+           echo "Message from job two '${{ needs.job_two.outputs.ask }}'"
       
