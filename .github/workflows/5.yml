@@ -1,0 +1,21 @@
+name : workflow_5
+
+on :
+  push :
+    branches : [ "main", "branch_1" ]
+  pull_request:
+    branches : [ "main" , "branch_1" ]
+
+jobs :
+  env_set-up :
+    runs-on : ubuntu-latest
+
+    steps :
+      - name : checkout code
+        uses : actions/checkout@v4
+
+      - name : confirmation
+        run : echo "...Done updating the repository..."
+
+    
+    
